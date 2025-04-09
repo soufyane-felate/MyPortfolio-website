@@ -4,18 +4,29 @@ import { SkillsComponent } from './skills/skills.component';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ExperienceComponent } from './experience/experience.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { FirstBodyComponent } from './first-body/first-body.component';
+import { FirstBodyComponent } from './home/first-body.component';
 import { AboutComponent } from './about/about.component';
-import { FooterComponent } from "./footer/footer.component";
+import { FooterComponent } from './footer/footer.component';
+import { ProjectsComponent } from './projects/projects.component';
+import { ContactComponent } from './contact/contact.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, SkillsComponent,
-    ExperienceComponent, NavbarComponent, FirstBodyComponent,
-    AboutComponent, FooterComponent,FooterComponent],
+  imports: [
+    RouterOutlet,
+    SkillsComponent,
+    ExperienceComponent,
+    NavbarComponent,
+    FirstBodyComponent,
+    AboutComponent,
+    FooterComponent,
+    FooterComponent,
+    ProjectsComponent,
+    ContactComponent,
+  ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
 })
 export class AppComponent {
   title = 'portfolio';

@@ -1,0 +1,11 @@
+<section>
+  <h1>Contact</h1>
+  <div class="container">
+    <div *ngFor="let information of Informations" class="card">
+      <img [src]="information.icon" [alt]="information.title" />
+      <h3 class="title">{{ information.title }}</h3>
+      <p class="t1"> {{ information.t1 }}</p>
+      <p class="t1"> {{ information.t2 }}</p>
+    </div>
+  </div>
+</section>

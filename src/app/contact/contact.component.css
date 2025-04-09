@@ -1,0 +1,47 @@
+:root {
+  --primary-color: #f78c0a;
+  --secondary-color: #2c3e50;
+  --text-color: #333;
+}
+
+h1 {
+  color: var(--primary-color);
+  text-align: center;
+  margin: 50px 0;
+  font-weight: 700;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+h1::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background-color: var(--primary-color);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+
+}
+.card {
+    border-right: 5px solid #f78c0aed;
+  background-color: #242124;
+  color: white;
+  margin: 10px;
+  padding: 10px;
+
+  align-items: center;
+  text-align: center;
+  align-self: center;
+}
+.card img {
+  height: 50px;
+  object-fit: contain;
+  padding: 10px;
+}
