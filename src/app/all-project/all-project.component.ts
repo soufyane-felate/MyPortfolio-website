@@ -1,15 +1,14 @@
 import { Component } from '@angular/core';
-import { title } from 'process';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-projects',
+  selector: 'app-all-project',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './projects.component.html',
-  styleUrl: './projects.component.css',
+  templateUrl: './all-project.component.html',
+  styleUrl: './all-project.component.css',
 })
-export class ProjectsComponent {
+export class AllProjectComponent {
   projects = [
     {
       title: 'BuildFlow-Manager',
@@ -47,6 +46,18 @@ export class ProjectsComponent {
         '../../assets/images/movies2.png',
       ],
     },
-   
+    {
+      title: 'Wheater',
+      description:
+        'CookSpot is a user-friendly recipe website where food lovers can discover, share, and save delicious recipes from around the world. Perfect for home cooks and foodies alike!',
+      UrlLink: 'https://github.com/soufyane-felate/BuildFlow-Manager',
+      langue: ['html', 'css', 'js'],
+
+      Image: [
+        '../../assets/images/wheath.png',
+        '../../assets/images/wheath2.png',
+        '../../assets/images/wheath3.png',
+      ],
+    },
   ];
 }

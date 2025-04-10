@@ -90,9 +90,29 @@ h1::after {
   margin: 0 auto;
 }
 
-.experience-section {
+#project {
   padding: 60px 0;
 }
+
+.allProject{
+
+
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  color: white;
+  border: none;
+  background-color: var(--primary-color);
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+   text-align: center;
+  margin: 0 auto;
+}
+
+
 
 @media (max-width: 768px) {
   h1 {

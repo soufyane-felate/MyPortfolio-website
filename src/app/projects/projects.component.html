@@ -1,4 +1,4 @@
-<section class="experience-section">
+<section id="project">
   <h1>My Projects</h1>
   <div class="container">
     <div *ngFor="let project of projects" class="card" style="width: 22rem">
@@ -11,7 +11,7 @@
         />
       </div>
       <div class="card-body">
-       
+
         <h2>{{project.title}}</h2>
         <p class="card-text">{{ project.description }}</p>
         <div class="d-grid">
@@ -22,4 +22,5 @@
       </div>
     </div>
   </div>
+  <input type="submit" value="See all project" class="allProject">
 </section>
