@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.css',
 })
@@ -29,4 +30,34 @@ export class ContactComponent {
       t2: 'soufyanfellat0@gmail.com',
     },
   ];
+
+  name: string = '';
+  email: string = '';
+  subject: string = '';
+  message: string = '';
+  validate: string = '';
+  isValid: boolean = false;
+
+  onSubmit(event: Event) {
+    event.preventDefault();
+    this.validateInput();
+  }
+
+  validateInput() {
+    if (!this.name || !this.email || !this.message) {
+      this.validate = 'All fields are required';
+      this.isValid = false;
+    } else if (!this.validateEmail(this.email)) {
+      this.validate = 'Please enter a valid email address';
+      this.isValid = false;
+    } else {
+      this.validate = 'Message sent successfully!';
+      this.isValid = true;
+    }
+  }
+
+  validateEmail(email: string): boolean {
+    const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return re.test(email);
+  }
 }
