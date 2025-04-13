@@ -9,6 +9,7 @@ import { AboutComponent } from './about/about.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { ContactComponent } from './contact/contact.component';
+import { CvComponent } from './cv/cv.component';
 
 @Component({
   selector: 'app-root',
@@ -24,10 +25,12 @@ import { ContactComponent } from './contact/contact.component';
     FooterComponent,
     ProjectsComponent,
     ContactComponent,
+    CvComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
 export class AppComponent {
   title = 'portfolio';
+ 
 }

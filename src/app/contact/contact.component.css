@@ -1,15 +1,9 @@
-:root {
-  --primary-color: #f78c0a;
-  --secondary-color: #2c3e50;
-  --text-color: #333;
-  --card-bg: #a7a4a7;
-  --white: #ffffff;
-}
+
 * {
   color: white;
 }
 h1 {
-  color: var(--primary-color);
+  color: #f78c0a;
   text-align: center;
   margin: 2rem 0;
   font-weight: 700;
@@ -26,7 +20,7 @@ h1::after {
   transform: translateX(-50%);
   width: 100px;
   height: 3px;
-  background-color: var(--primary-color);
+  background-color: #f78c0a;
 }
 
 .container {
@@ -44,7 +38,7 @@ h1::after {
 }
 
 .card {
-  border-right: 5px solid var(--primary-color);
+  border-right: 5px solid #f78c0a;
   background-color: var(--card-bg);
   color: var(--white);
   margin: 0.5rem;
@@ -93,7 +87,7 @@ h6 {
 
 input,
 textarea {
-  color: var(--white);
+  color: white;
   width: 100%;
   padding: 0.8rem;
   margin-bottom: 1rem;
@@ -107,7 +101,7 @@ textarea {
 input:focus,
 textarea:focus {
   outline: none;
-  border-color: var(--primary-color);
+  border-color: #f78c0a;
 }
 
 .social-icons {
@@ -135,7 +129,7 @@ textarea:focus {
 #submit {
   width: 100%;
   padding: 0.8rem;
-  background-color: var(--primary-color);
+  background-color: #f78c0a;
   color: #000;
   border: none;
   border-radius: 5px;
@@ -218,7 +212,7 @@ textarea:focus {
     margin: 0.5rem 0;
     padding: 1rem;
     border-right: none;
-    border-bottom: 5px solid var(--primary-color);
+    border-bottom: 5px solid #f78c0a;
   }
 
   .card img {

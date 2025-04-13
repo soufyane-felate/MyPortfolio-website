@@ -10,10 +10,23 @@ import { CommonModule } from '@angular/common';
 })
 export class NavbarComponent {
   navItems = [
-    { label: 'Accueil', link: '#home' },
-    { label: 'About', link: '#About' },
-    { label: 'Projets', link: '#project' },
-    { label: 'CV', link: '#cv' },
-    { label: 'Contact', link: '#contact-section' },
+    { label: 'Accueil', link: '#home', type: 'link' },
+    { label: 'About', link: '#About', type: 'link' },
+    { label: 'Projets', link: '#project', type: 'link' },
+    { label: 'CV', type: 'action', action: () => this.downloadCV() },
   ];
+  
+  downloadCV(): void {
+    const link = document.createElement('a');
+    link.href = '/assets/CV/CV_FSOUFYANE_O.pdf.pdf';
+    link.download = 'soufyane.pdf';
+    link.click();
+  }
+
+  handleItemClick(item: any, event: Event): void {
+    if (item.type === 'action' && item.action) {
+      event.preventDefault();
+      item.action();
+    }
+  }
 }

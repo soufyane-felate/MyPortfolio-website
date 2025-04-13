@@ -1,23 +1,25 @@
 import { Component } from '@angular/core';
-import { title } from 'process';
+import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,RouterModule],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.css',
 })
 export class ProjectsComponent {
+  selectedLanguage: string = 'all'; 
+
   projects = [
     {
       title: 'BuildFlow-Manager',
-      description:
-        'BuildFlow Manager is a web-based application for efficient construction project management. It enables teams to create projects, assign tasks, and allocate resources. Users can track progress in real-time to stay organized and on schedule.',
+      description: 'BuildFlow Manager is a web-based app that helps construction teams efficiently plan, organize, and track projects in real time.',
       UrlLink: 'https://github.com/soufyane-felate/BuildFlow-Manager',
       langue: ['java', 'html', 'css', 'jee', 'js'],
       Image: [
+        '../../assets/images/build.jpg',
         '../../assets/images/buildFlow.png',
         '../../assets/images/buildFlow2.png',
         '../../assets/images/buildFlow3.png',
@@ -25,23 +27,20 @@ export class ProjectsComponent {
     },
     {
       title: 'cookspot',
-      description:
-        'CookSpot is a user-friendly recipe website where food lovers can discover, share, and save delicious recipes from around the world. Perfect for home cooks and foodies alike!',
+      description: 'CookSpot is a user-friendly website that provides delicious recipes, cooking tips, and meal planning ideas to inspire home cooks and food enthusiasts.',
       UrlLink: 'https://github.com/soufyane-felate/BuildFlow-Manager',
       langue: ['html', 'css', 'js'],
-
       Image: [
         '../../assets/images/cookspot.png',
         '../../assets/images/cookspot2.png',
       ],
     },
+   
     {
       title: 'cookspot',
-      description:
-        'CookSpot is a user-friendly recipe website where food lovers can discover, share, and save delicious recipes from around the world. Perfect for home cooks and foodies alike!',
+      description: 'CookSpot is a user-friendly recipe website...',
       UrlLink: 'https://github.com/soufyane-felate/BuildFlow-Manager',
       langue: ['js', 'html', 'css'],
-
       Image: [
         '../../assets/images/movies.png',
         '../../assets/images/movies2.png',
@@ -49,4 +48,20 @@ export class ProjectsComponent {
     },
    
   ];
+
+  getLanguages(): string[] {
+    const langs = new Set(this.projects.flatMap(p => p.langue));
+    return ['all', ...langs];
+  }
+
+  filteredProjects() {
+    if (this.selectedLanguage === 'all') return this.projects;
+    return this.projects.filter(p =>
+      p.langue.includes(this.selectedLanguage)
+    );
+  }
+
+  setFilter(lang: string) {
+    this.selectedLanguage = lang;
+  }
 }
