@@ -15,23 +15,20 @@
   </button>
   
 
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <div class="w-100 d-flex flex-column flex-lg-row justify-content-between align-items-center">
-        <ul class="navbar-nav d-flex flex-row flex-wrap justify-content-center gap-3 my-2 my-lg-0">
-          <li *ngFor="let item of navItems" class="nav-item">
-            <a
-              class="nav-link text-light"
-              [href]="item.type === 'link' ? item.link : null"
-              (click)="handleItemClick(item, $event)"
-              >{{ item.label }}</a
-            >
-          </li>
-        </ul>
-
-        <a class="navbar-brand text-light d-none d-lg-block" href="#contact-section">
-          Contact
-        </a>
-      </div>
-    </div>
+  <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+    <ul class="navbar-nav d-flex flex-row flex-wrap justify-content-center gap-3 my-2 my-lg-0 align-items-center">
+      <li *ngFor="let item of navItems" class="nav-item">
+        <a
+          class="nav-link text-light"
+          [href]="item.type === 'link' ? item.link : null"
+          (click)="handleItemClick(item, $event)"
+        >{{ item.label }}</a>
+      </li>
+      <li class="nav-item d-none d-lg-block">
+        <a class="nav-link text-light" href="#contact-section">Contact</a>
+      </li>
+    </ul>
+  </div>
+  
   </div>
 </nav>
