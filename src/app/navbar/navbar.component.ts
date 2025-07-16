@@ -15,7 +15,7 @@ export class NavbarComponent {
     { label: 'Projets', link: '#project', type: 'link' },
     { label: 'CV', type: 'action', action: () => this.downloadCV() },
   ];
-  
+
   downloadCV(): void {
     const link = document.createElement('a');
     link.href = '/assets/CV/CV_FSOUFYANE_O.pdf.pdf';

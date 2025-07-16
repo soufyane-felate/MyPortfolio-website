@@ -5,7 +5,15 @@ import { FirstBodyComponent } from './home/first-body.component';
 import { CvComponent } from './cv/cv.component';
 
 export const routes: Routes = [
+  { path: '', component: FirstBodyComponent },
   { path: 'home', component: FirstBodyComponent },
   { path: 'allProject', component: AllProjectComponent },
   { path: 'cv', component: CvComponent },
+  {
+    path: 'allProject',
+    loadComponent: () =>
+      import('./all-project/all-project.component').then(
+        (m) => m.AllProjectComponent
+      ),
+  },
 ];
