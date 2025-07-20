@@ -15,13 +15,13 @@ export class ContactComponent {
       icon: 'https://cdn-icons-png.flaticon.com/128/5585/5585856.png',
       title: 'Phone',
       t1: '+212 622725296',
-      t2: '+212 632807591',
+      t2: '+212 716-450436',
     },
     {
       icon: 'https://cdn-icons-png.flaticon.com/128/684/684908.png',
       title: 'Address',
-      t1: '23000 Beni mellal , MAR',
-      t2: '25060 boujaad , MAR',
+      t1: '25060 boujaad , MAR',
+      t2: '23000 Beni mellal , MAR',
     },
     {
       icon: 'https://cdn-icons-png.flaticon.com/128/15047/15047587.png',
