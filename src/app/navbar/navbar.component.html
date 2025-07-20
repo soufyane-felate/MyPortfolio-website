@@ -19,17 +19,23 @@
         <li *ngFor="let item of navItems" class="nav-item">
           <a
             class="nav-link text-light"
-            *ngIf="item.type === 'route'"
+            *ngIf="item.labelKey && item.type === 'route'"
             [routerLink]="item.link"
             routerLinkActive="active"
             (click)="handleItemClick(item, $event)"
-          >{{ item.labelKey | translate }}</a>
+          >{{ item.labelKey ? (item.labelKey | translate) : '' }}</a>
           <a
             class="nav-link text-light"
-            *ngIf="item.type === 'action'"
+            *ngIf="item.labelKey && item.type === 'anchor'"
+            href="#{{item.link}}"
+            (click)="handleItemClick(item, $event)"
+          >{{ item.labelKey ? (item.labelKey | translate) : '' }}</a>
+          <a
+            class="nav-link text-light"
+            *ngIf="item.labelKey && item.type === 'action'"
             href="#"
             (click)="handleItemClick(item, $event)"
-          >{{ item.labelKey | translate }}</a>
+          >{{ item.labelKey ? (item.labelKey | translate) : '' }}</a>
         </li>
         <li class="nav-item">
           <select class="form-select bg-dark text-light" [ngModel]="currentLanguage" (change)="onLanguageChange($event)">
@@ -37,12 +43,6 @@
             <option value="fr">Français</option>
             <option value="ar">العربية</option>
           </select>
-        </li>
-        <li class="nav-item">
-          <mat-slide-toggle [checked]="isDarkMode" (change)="onThemeToggle()">Dark Mode</mat-slide-toggle>
-        </li>
-        <li class="nav-item">
-          <button class="btn btn-outline-secondary ms-2" *ngIf="!isWhiteMode" (click)="onWhiteMode()">White Mode</button>
         </li>
       </ul>
     </div>

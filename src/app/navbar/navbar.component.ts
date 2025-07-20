@@ -23,15 +23,13 @@ export class NavbarComponent implements OnInit {
   @Output() themeToggled = new EventEmitter<void>();
 
   currentLanguage: string = 'en';
-  isDarkMode: boolean = false;
-  isWhiteMode: boolean = true;
 
   navItems = [
-    { labelKey: 'HEADER.HOME', link: '/home', type: 'route' },
-    { labelKey: 'HEADER.ABOUT_ME', link: '/about', type: 'route' },
-    { labelKey: 'HEADER.PROJECTS', link: '/allProject', type: 'route' },
+    { labelKey: 'HEADER.HOME', link: 'home', type: 'anchor' },
+    {  link: 'About', type: 'anchor' },
+    { labelKey: 'HEADER.PROJECTS', link: 'project', type: 'anchor' },
     { labelKey: 'HEADER.CV', type: 'action', action: () => this.downloadCV() },
-    { labelKey: 'HEADER.CONTACT', link: '/contact', type: 'route' },
+    { labelKey: 'HEADER.CONTACT', link: 'contact-section', type: 'anchor' },
   ];
 
   constructor(
@@ -41,11 +39,6 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentLanguage = this.translate.currentLang;
-    if (isPlatformBrowser(this.platformId)) {
-      const theme = localStorage.getItem('theme');
-      this.isDarkMode = theme === 'dark';
-      this.isWhiteMode = theme === 'white' || !theme;
-    }
   }
 
   onLanguageChange(event: Event) {
@@ -53,19 +46,6 @@ export class NavbarComponent implements OnInit {
     const lang = selectElement.value;
     this.translate.use(lang);
     this.languageChanged.emit(lang);
-  }
-
-  onThemeToggle() {
-    this.themeToggled.emit();
-  }
-
-  onWhiteMode() {
-    this.isDarkMode = false;
-    this.isWhiteMode = true;
-    document.body.classList.remove('dark-theme');
-    document.body.classList.add('white-theme');
-    localStorage.setItem('theme', 'white');
-    this.themeToggled.emit();
   }
 
   downloadCV(): void {
@@ -79,6 +59,12 @@ export class NavbarComponent implements OnInit {
     if (item.type === 'action' && item.action) {
       event.preventDefault();
       item.action();
+    } else if (item.type === 'anchor') {
+      event.preventDefault();
+      const el = document.getElementById(item.link);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   }
 }
