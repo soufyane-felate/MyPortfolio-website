@@ -1,0 +1,22 @@
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+body.dark-theme {
+  background-color: #303030;
+  color: #fff;
+}
+
+body.dark-theme .mat-toolbar {
+  background-color: #424242;
+  color: #fff;
+}
+
+body.dark-theme .mat-card {
+  background-color: #424242;
+  color: #fff;
+}
+
+body.dark-theme a {
+  color: #bb86fc;
+}

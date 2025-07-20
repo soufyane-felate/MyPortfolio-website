@@ -1,0 +1,38 @@
+/* White mode and dark mode support */
+:root {
+  --main-bg: #ffffff;
+  --main-text: #222222;
+  --main-link: #0d6efd;
+  --main-card-bg: #f8f9fa;
+  --main-navbar-bg: #f8f9fa;
+  --main-navbar-text: #222222;
+}
+
+body.white-theme {
+  background-color: var(--main-bg) !important;
+  color: var(--main-text) !important;
+}
+
+body.white-theme .navbar {
+  background-color: var(--main-navbar-bg) !important;
+}
+body.white-theme .navbar .nav-link,
+body.white-theme .navbar .navbar-brand {
+  color: var(--main-navbar-text) !important;
+}
+body.white-theme .card {
+  background-color: var(--main-card-bg) !important;
+  color: var(--main-text) !important;
+}
+body.white-theme h1, body.white-theme h2, body.white-theme h3, body.white-theme h4, body.white-theme h5, body.white-theme h6 {
+  color: var(--main-text) !important;
+}
+body.white-theme .btn-primary {
+  background-color: var(--main-link) !important;
+  color: #fff !important;
+}
+
+body.dark-theme {
+  background-color: #242124 !important;
+  color: #fff !important;
+}

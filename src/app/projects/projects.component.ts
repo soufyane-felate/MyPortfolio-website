@@ -1,22 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterLink, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [CommonModule, RouterModule, RouterLink],
+  imports: [CommonModule, RouterModule, RouterLink, TranslateModule],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.css',
 })
-export class ProjectsComponent {
+export class ProjectsComponent implements OnInit {
   selectedLanguage: string = 'all';
+  displayedProjects: any[] = [];
 
   projects = [
     {
       title: 'BuildFlow-Manager',
-      description:
-        'BuildFlow Manager is a web-based app that helps construction teams efficiently plan, organize, and track projects in real time.',
+      descriptionKey:
+        'PROJECTS.BUILD_FLOW_DESCRIPTION',
       UrlLink: 'https://github.com/soufyane-felate/BuildFlow-Manager',
       langue: ['java', 'html', 'css', 'jee', 'js'],
       Image: [
@@ -28,8 +30,8 @@ export class ProjectsComponent {
     },
     {
       title: 'cookspot',
-      description:
-        'CookSpot is a user-friendly website that provides delicious recipes, cooking tips, and meal planning ideas to inspire home cooks and food enthusiasts.',
+      descriptionKey:
+        'PROJECTS.COOKSPOT_DESCRIPTION',
       UrlLink: 'https://github.com/soufyane-felate/weather',
       langue: ['html', 'css', 'js'],
       Image: [
@@ -39,8 +41,8 @@ export class ProjectsComponent {
     },
     {
       title: 'movies',
-      description:
-        'A movie website that offers users the latest films, trailers, reviews, and detailed information about upcoming releases, all in one place.',
+      descriptionKey:
+        'PROJECTS.MOVIES_DESCRIPTION',
       UrlLink: 'https://github.com/soufyane-felate/Movies',
       langue: ['js', 'html', 'css'],
       Image: [
@@ -50,14 +52,20 @@ export class ProjectsComponent {
     },
   ];
 
+  constructor(private translate: TranslateService) {}
+
+  ngOnInit(): void {
+    this.displayedProjects = this.projects.slice(0, 3);
+  }
+
   getLanguages(): string[] {
     const langs = new Set(this.projects.flatMap((p) => p.langue));
     return ['all', ...langs];
   }
 
   filteredProjects() {
-    if (this.selectedLanguage === 'all') return this.projects;
-    return this.projects.filter((p) =>
+    if (this.selectedLanguage === 'all') return this.displayedProjects;
+    return this.displayedProjects.filter((p) =>
       p.langue.includes(this.selectedLanguage)
     );
   }
@@ -66,3 +74,4 @@ export class ProjectsComponent {
     this.selectedLanguage = lang;
   }
 }
+
