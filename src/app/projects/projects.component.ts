@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { SkillsComponent } from '../skills/skills.component';
 
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [CommonModule, RouterModule, RouterLink, TranslateModule],
+  imports: [CommonModule, RouterModule, RouterLink, TranslateModule,SkillsComponent],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.css',
 })

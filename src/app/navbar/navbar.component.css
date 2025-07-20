@@ -9,10 +9,9 @@
 .custom-brand::first-letter {
   color: red;
   font-weight: bold;
-  font-size: 30px;
+  font-size: 40px;
 }
 
-/* Fade-in animation for navbar */
 @keyframes navbarFadeIn {
   0% {
     opacity: 0;
@@ -76,7 +75,7 @@ body {
 
 .logo-s {
   color: #ff3c3c;
-  font-size: 2.2rem;
+  font-size: 0.2rem;
   font-weight: bold;
   font-family: 'Bungee Spice', 'Arial Black', Arial, sans-serif;
   letter-spacing: 1px;

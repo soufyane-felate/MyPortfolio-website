@@ -34,6 +34,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 })
 export class AppComponent implements OnInit {
   title = 'portfolio';
+  isDarkMode: boolean = false;
+  isWhiteMode: boolean = true;
 
   constructor(
     private translate: TranslateService,
@@ -44,11 +46,47 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // Removed theme logic
+    if (isPlatformBrowser(this.platformId)) {
+      const theme = localStorage.getItem('theme');
+      this.isDarkMode = theme === 'dark';
+      this.isWhiteMode = theme === 'white' || !theme;
+      this.applyTheme();
+    }
   }
 
   switchLanguage(language: string) {
     this.translate.use(language);
+  }
+
+  toggleTheme() {
+    if (this.isDarkMode) {
+      this.isDarkMode = false;
+      this.isWhiteMode = true;
+    } else {
+      this.isDarkMode = true;
+      this.isWhiteMode = false;
+    }
+    this.applyTheme();
+  }
+
+  setWhiteMode() {
+    this.isDarkMode = false;
+    this.isWhiteMode = true;
+    this.applyTheme();
+  }
+
+  private applyTheme() {
+    if (isPlatformBrowser(this.platformId)) {
+      if (this.isDarkMode) {
+        document.body.classList.add('dark-theme');
+        document.body.classList.remove('white-theme');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        document.body.classList.remove('dark-theme');
+        document.body.classList.add('white-theme');
+        localStorage.setItem('theme', 'white');
+      }
+    }
   }
 }
 
